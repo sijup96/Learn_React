@@ -1,11 +1,20 @@
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child1" },
-   [React.createElement("h1", {}, "hello"),React.createElement("h5", {}, "hello5"),React.createElement("h2", {}, "hello2")]
-  )
+import React from "react";
+import ReactDOM from "react-dom";
+
+const Title = () => <h1>This is Title</h1>;
+
+const head=<h1>heading</h1>
+const Body = function(){
+    return(
+  <div>
+    {Title()}
+    <Title> </Title>
+    {head}
+    <h1>This is Body</h1>
+  </div>
 )
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<Body/>)
+
+
