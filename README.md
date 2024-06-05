@@ -1,5 +1,10 @@
                                 Learning React..
 
+# React create app
+npx create-react-app my-app
+cd my-app
+npm start
+
 # Install React
 --> npm install react
 
@@ -42,3 +47,15 @@
 . Function that return reactElement  
 
 --> Component composition - A component inside another component.
+
+# props 
+--> Arguments to a function (to Load dynamic data)
+ .passing props to the component.
+
+# key
+--> must use unique ID ,(else use 'index' but  is not recomented by react)
+
+
+
+ # more
+ --> Config driven UI (website is driven by config data)- industrial use
