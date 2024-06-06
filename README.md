@@ -1,4 +1,5 @@
-                                Learning React..
+                                # Learning React..
+
 
 # React create app
 npx create-react-app my-app
@@ -55,7 +56,33 @@ npm start
 # key
 --> must use unique ID ,(else use 'index' but  is not recomented by react)
 
+# Hooks (Normal JS utility code)
+--> useState() - state variables in react.
+. import {useState} from 'react';
+. Scope of the state variable with inthe  Component
+. When ever a state variable  updates, react triggers a reconiliation cycle(re-renders the component)
 
+--> useEffect() 
+. 2 parameter(1.callBack(), 2. dependency array).
+ => If no dependency array => useEffect is called on every render .
+ => If dependency array is empty = [] => useEffect is called on initial render (just once).
+ => If dependency array have [element] => useEffect is called everytime the 'element' is updated.
+
+# Virtual DOM
+--> Is a representation of Actual DOM.
+. JS Object.
+
+# Diff algorithm
+--> Find the difference b/w 2 virtual DOM.(old object & new new object) and then update the Actual DOM. 
+. It will done at every state changes.
+
+# React uses Reconciliation algorithm (React fiber) [React 16].
+--> React is fast because of efficient DOM manipulation.
+. Virtual DOM (diff algorithm)
 
  # more
- --> Config driven UI (website is driven by config data)- industrial use
+ --> Config driven UI (website is driven by config data)- industrial use.
+
+ # API calls (2 ways of approach)
+ --> 1. Load -> API -> Render.
+ --> 2. Load -> Render -> API -> Re-Render. (Better user experience)
