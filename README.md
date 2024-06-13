@@ -1,88 +1,200 @@
                                 # Learning React..
 
-
 # React create app
+
 npx create-react-app my-app
 cd my-app
 npm start
 
 # Install React
+
 --> npm install react
 
 --> npm i react-dom
 
 # Installing dependencies
+
 --> npm i -D parcel ( -D means dev dependencies ) other is normal dependencies.
 
-# Run Parcel for developer
+# Run Parcel for developer (Parcel is a bundler)
+
 --> npx parcel index.html ( npx means executing the package.. to Iginte our app) --https
 
+. File watching algorithm - written in c++
+. Caching - Faster Builds
 . Local server
 . HMR (Hot Module Replacement)
 . Store caching for Faster Builds
 . Image optimization
 . Minification
 . Compress
-. Bundling
+. Bundling (All file into one)
 . Consistent Hashing
 . Differential Bundling - support older versions
 . HTTPS host also
 . Tree Shaking algorithm- remove unused code
+. Code spliting
+. Diagnostic
+. Error Handling
+. Different dev and prod bundles
 
 # Parcel for Production
+
 --> npx parcel build index.html (When using this, remove main:App.js from package.json)
 
 # make sure gitignore
+
 /node_modules
 
 # JSX (JavaScript XML (xml like syntax))
+
 --> (JSX transpiled before it reaches the JS) - PARCEL - Babel
+
 - Camelcase
 - Writing multiple line inside the () otherwise write in one line.
 
+# React have 2 phases [1. Render phase, 2. Commit Phase ]
+
+=> Render phase - No side effects.
+=> Commit phase - Run side effects.
+
 # React Component (2 types)
+
 --> Class Based Component - OLD way of writing code
+. Constructor(props) is used to accessd props and make into super(props).
+. using 'this' keyword is used to access the props inside the class.
+. Hooks are initialize inside the constructor()
+eg: this.state={
+count=0,
+}
+=> Never update state variable directly.
+. Update state variable
+eg: this.setState({
+count:this.state.count+1,
+})
+-> componentDidMount()-> run last -> for make API calls (Like useEffect() in the functional component)
+
+=> Life Cycle
+=> Mounting:{
+-> First parent constructor()
+-> Parent render()
+-> Child1 constructor()
+-> Child1 render()
+-> Child2 constructor()
+-> Child2 render()
+< DOM UPDATING >
+-> child1 componentDidMount()
+-> child2 componentDidMount()
+-> Parent componentDidMount()
+}
+
+=> componentDidUpdate() - run after componentDidMount()
+-> DOM is update
+
+=> componentWillUnmount() - remove from DOM
 
 --> Functional Component - NEW way of writing code
 . Component name starts with capital letter.
-. Function that return reactElement  
+. Function that return reactElement
 
 --> Component composition - A component inside another component.
 
-# props 
+# props
+
 --> Arguments to a function (to Load dynamic data)
- .passing props to the component.
+.passing props to the component.
 
 # key
---> must use unique ID ,(else use 'index' but  is not recomented by react)
+
+--> must use unique ID ,(else use 'index' but is not recomented by react)
 
 # Hooks (Normal JS utility code)
---> useState() - state variables in react.
-. import {useState} from 'react';
-. Scope of the state variable with inthe  Component
-. When ever a state variable  updates, react triggers a reconiliation cycle(re-renders the component)
 
---> useEffect() 
+--> useState() - to create local state variables in react.
+. import {useState} from 'react';
+. Scope of the state variable with inthe Component
+. When ever a state variable updates, react triggers a reconiliation cycle(re-renders the component)
+. Don't create inside the conditions,loops,inner Functions.
+
+--> useEffect()
 . 2 parameter(1.callBack(), 2. dependency array).
- => If no dependency array => useEffect is called on every render .
- => If dependency array is empty = [] => useEffect is called on initial render (just once).
- => If dependency array have [element] => useEffect is called everytime the 'element' is updated.
+=> return()=>{} is used to unmount the useEffect() (sideEffect)
+=> If no dependency array => useEffect is called on every render .
+=> If dependency array is empty = [] => useEffect is called on initial render (just once).
+=> If dependency array have [element] => useEffect is called everytime the 'element' is updated.
+
+--> useRouterError()
+
+--> useParams() - This is like params in node.js
 
 # Virtual DOM
+
 --> Is a representation of Actual DOM.
 . JS Object.
 
 # Diff algorithm
---> Find the difference b/w 2 virtual DOM.(old object & new new object) and then update the Actual DOM. 
+
+--> Find the difference b/w 2 virtual DOM.(old object & new new object) and then update the Actual DOM.
 . It will done at every state changes.
 
 # React uses Reconciliation algorithm (React fiber) [React 16].
+
 --> React is fast because of efficient DOM manipulation.
 . Virtual DOM (diff algorithm)
 
- # more
- --> Config driven UI (website is driven by config data)- industrial use.
+# more
 
- # API calls (2 ways of approach)
- --> 1. Load -> API -> Render.
- --> 2. Load -> Render -> API -> Re-Render. (Better user experience)
+--> Config driven UI (website is driven by config data)- industrial use.
+
+# API calls (2 ways of approach)
+
+--> 1. Load -> API -> Render.
+--> 2. Load -> Render -> API -> Re-Render. (Better user experience)
+
+# React Router
+
+--> npm i react-dom
+. import {createBrowserRouter} from 'react-router-dom'; is recomented.
+. {RouterProvider} => To provide children router
+. {Outlet} => To access child routes
+
+=> Navigate to another page without reloading the entire page. (Don't use <a>) => use {Link}
+
+-->import {Link} from 'react-router-dom'
+
+# 2 types Routing in web apps
+
+=> Client side Routing - No network call , just load the component
+=> Server side Routing - Network call , reload whole page
+
+# Optimize the code
+
+=> Single responsibility principle
+-> Make your code Testable,reUsable and Maintainable
+-> Make it modular
+
+=> Custom Hooks()
+
+=> Chunking / Code Spliting / Dynamic Bundling / Lazy loading / on Demand loading
+-> import React,{lazy, Suspense} from 'react'
+eg: const Grocery= lazy(()=>import('path of Component'))
+. Give component inside the <Suspense fallback={}> <Grocery/></Suspense>
+
+# styles
+
+=> Styled component
+=> SCSS, SASS
+=> Material UI
+=> Bootstrap
+=> Chakra UI
+=> Ant Design
+=> Tailwind
+
+# Higher order component
+
+# Props Drilling (passing data from root to leaf through all nodes) [it is the problem] => use React context
+
+# React context
+
+=> createContext()
+=> useContext()
