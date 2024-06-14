@@ -198,3 +198,17 @@ eg: const Grocery= lazy(()=>import('path of Component'))
 
 => createContext()
 => useContext()
+
+# Redux ( its work on the data layer) [Not mandatory] - Managing state
+
+=> Used in big applicatiions.
+-> A predicatable state container for apps.
+-> Application is easier to debug
+
+=> Store data inside the redux in the form of different slices
+
+=> Write Data
+-->> Click --> [Dispatch Action] --> [calls an function() [Reducer] ] --> modify the slice in redux store.
+
+=> Read Data
+-->> Using selector [ Subscribing to the store ]
