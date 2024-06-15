@@ -199,7 +199,15 @@ eg: const Grocery= lazy(()=>import('path of Component'))
 => createContext()
 => useContext()
 
-# Redux ( its work on the data layer) [Not mandatory] - Managing state
+# Redux Toolkit ( its work on the data layer) [Not mandatory] - Managing state
+
+-> Install npm i @reduxjs/toolkit and react-redux
+
+- Build out store ( inside the utils folder )
+- Connect our store to our app
+- Slice
+- Dispatch (action)
+- Selector
 
 => Used in big applicatiions.
 -> A predicatable state container for apps.
@@ -208,7 +216,64 @@ eg: const Grocery= lazy(()=>import('path of Component'))
 => Store data inside the redux in the form of different slices
 
 => Write Data
--->> Click --> [Dispatch Action] --> [calls an function() [Reducer] ] --> modify the slice in redux store.
+-->> Click --> [useDispatch() Action] --> [calls an function() [Reducer] ] --> modify the slice in redux store.
 
 => Read Data
--->> Using selector [ Subscribing to the store ]
+-->> useSelector() [ Subscribing to the store ].
+
+=> Make sure the right hand side of the selector (only that we want to be subscribe slice not the whole store)
+
+=> Immer (library) - to make mutate state variables in the reducers
+
+# RTK query
+
+-> Earlier we use midlewares and thunks now we use RTK queries
+
+# Testing [ developer ] 3 types
+
+=> Unit testing
+-> Test in isolation [test only one component]
+
+=> Integration testing
+-> Integration of components test
+
+=> End to End (E2E) testing
+-> Start from the user enter to the application to the user leave the appllication
+. Cypress
+. Selenium
+
+# Setting up Testing in our app
+
+-> Install React Testing Library
+-> Install jest
+-> Install Babel dependencies ( on jest website )
+-> Configure Babel
+---> babel.config.js
+module.exports = {
+presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+};
+
+-> Configure Parcel Config to disable default babel transpilation ( on parcel website javascript - babel)
+---> .parcelrc
+{
+"extends": "@parcel/config-default",
+"transformers": {
+"\*.{js,mjs,jsx,cjs,ts,tsx}": [
+"@parcel/transformer-js",
+"@parcel/transformer-react-refresh-wrap"
+]
+}
+}
+
+-> Jest configuration
+---> npx jest --init
+
+-> Install jsdom library ( react testing library - setup  - jest 28) 
+---> npm install --save-dev jest-environment-jsdom
+
+# Librarys for testing
+
+-> Jest - Javascript Testing Framework with a focus on simpolicity
+-> React Testing Library
+
+# To run test [ npm run test ]
