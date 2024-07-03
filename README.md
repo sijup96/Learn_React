@@ -127,6 +127,8 @@ count:this.state.count+1,
 
 --> useParams() - This is like params in node.js
 
+--> useRef()
+
 # Virtual DOM
 
 --> Is a representation of Actual DOM.
@@ -276,4 +278,4 @@ presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
 -> Jest - Javascript Testing Framework with a focus on simpolicity
 -> React Testing Library
 
-# To run test [ npm run test ]
+# To run test [ npm run test ] 
